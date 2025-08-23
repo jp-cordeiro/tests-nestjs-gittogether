@@ -34,14 +34,51 @@ describe('Payments E2E', () => {
     await app.close();
   });
 
-  it('/payments/card (POST) deve aprovar pagamento', async () => {
-    const response = await request(app.getHttpServer())
-      .post('/payments/card')
-      .send(mockCardPayment())
-      .expect(HttpStatus.OK);
+  describe('/payments/card (POST)', () => {
+    it('deve aprovar pagamento', async () => {
+      const response = await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment())
+        .expect(HttpStatus.OK);
 
-    expect(response.body.method).toBe('card');
-    expect(response.body.status).toBeDefined();
+      expect(response.body.method).toBe('card');
+      expect(response.body.status).toBeDefined();
+    });
+
+    it('deve retornar 400 se amount não for numero', async () => {
+      return await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment({ amount: 'invalid' as any }))
+        .expect(HttpStatus.BAD_REQUEST);
+    });
+
+    it('deve retornar 400 se currency estiver vazio', async () => {
+      return await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment({ currency: '' as any }))
+        .expect(HttpStatus.BAD_REQUEST);
+    });
+
+    it('deve retornar 400 se cardNumber nao for string', async () => {
+      return await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment({ cardNumber: 1234567890123456 as any }))
+        .expect(HttpStatus.BAD_REQUEST);
+    });
+
+    it('deve retornar 400 se cardNumber tiver menos que 13 digitos', async () => {
+      return await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment({ cardNumber: '123456789012' }))
+        .expect(HttpStatus.BAD_REQUEST);
+    });
+
+    it('deve retornar 400 se cardNumber tiver mais que 19 digitos', async () => {
+      return await request(app.getHttpServer())
+        .post('/payments/card')
+        .send(mockCardPayment({ cardNumber: '12345678901234567890' }))
+        .expect(HttpStatus.BAD_REQUEST);
+    });
   });
 
   it('/payments/boleto (POST) deve gerar boleto', async () => {
