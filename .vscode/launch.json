@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Single Test File",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "${relativeFile}", // This will use the currently open file in VSCode
+        "--runInBand",
+        "--config",
+        "jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Attach to Docker Container",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app",
+      "skipFiles": ["<node_internals>/**"],
+      "protocol": "inspector",
+      "restart": true
+    }
+  ]
+}

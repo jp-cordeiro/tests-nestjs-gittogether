@@ -1,0 +1,41 @@
+# Pix
+POST http://localhost:3000/payments/pix
+Content-Type: application/json
+
+{
+ "amount": 200,
+  "currency": "BRL",
+  "payerKey": "email@example.com"
+}
+
+###
+
+# Boleto
+POST http://localhost:3000/payments/boleto
+Content-Type: application/json
+
+{
+  "amount": 55,
+  "currency": "BRL",
+  "payerName": "Dona Minina",
+  "payerDocument": "12345678901",
+}
+
+###
+
+# Cartão de crédito
+POST http://localhost:3000/payments/card
+Content-Type: application/json
+
+{
+"amount": 100,
+"currency": "BRL",
+"cardNumber": "4111111111111111",
+"expMonth": "12",
+"expYear": "30",
+"cvv": "123",
+"cardHolder": "Seu Minino",
+"installments": 1
+}
+
+###
