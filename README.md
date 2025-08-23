@@ -6,13 +6,13 @@ Busco nessa apresentação falar um pouco sobre:
 
 Os sete princípios dos Testes de Software:
 
-1 - Testes mostram a presença de defeitos, não sua ausência;
-2 - Testes exaustivos são impossíveis;
-3 - Testes antecipados economizam tempo e dinheiro;
-4 - Agrupamento de Defeitos;
-5 - Paradoxo da Pesticida;
-6 - Testes dependem do contexto;
-7 - A ilusão de ausência de erros.
+1 - Testes mostram a presença de defeitos, não sua ausência;<br/>
+2 - Testes exaustivos são impossíveis;<br/>
+3 - Testes antecipados economizam tempo e dinheiro;<br/>
+4 - Agrupamento de Defeitos;<br/>
+5 - Paradoxo da Pesticida;<br/>
+6 - Testes dependem do contexto;<br/>
+7 - A ilusão de ausência de erros.<br/>
 
 E um pouco sobre como testar uma aplicação NestJS com Jest.
 
