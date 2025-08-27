@@ -17,7 +17,7 @@ Os sete princípios dos Testes de Software:
 E um pouco sobre como testar uma aplicação NestJS com Jest.
 
 
-Link da apresentação: ['Terminei, só falta testar! Testando aplicações com NestJS']('https://docs.google.com/presentation/d/1Cy4ZhoyD42P3Zm-d4Hxz7AbjoZiRESNQsyz3MtBhkgI/edit?usp=sharing')
+Link da apresentação: [Terminei, só falta testar! Testando aplicações com NestJS](https://docs.google.com/presentation/d/1l486Xr_-g8QZdTsYFkcXH3imVHGY1kT16Iy5DeAiIR8/edit?usp=sharing)
 
 ## Iniciar o projeto
 
